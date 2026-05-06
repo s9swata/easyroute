@@ -4,8 +4,8 @@
 node_modules/
 
 # Expo
-.expo/
-dist/
+app/.expo/
+expo-app/dist/
 web-build/
 expo-env.d.ts
 
@@ -39,3 +39,29 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# project documentation
+SUMMARY.md
+AGENTS.md
+.claude
+
+# Turborepo
+.turbo/
+
+# Drizzle migrations
+apps/server/src/db/migrations/
+
+# Environment
+.env
+.env.*
+ISSUES.md
+PLAN.md
+graphify-out
+raw/
+
+# Drizzle migrations
+server/src/db/migrations/
+
+# Environment
+.env
+.env.*

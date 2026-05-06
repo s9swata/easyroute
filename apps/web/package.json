@@ -1,0 +1,13 @@
+{
+  "name": "@easyroute/web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.2"
+  }
+}
