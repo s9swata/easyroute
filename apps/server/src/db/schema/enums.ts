@@ -3,12 +3,28 @@ import { pgEnum } from "drizzle-orm/pg-core";
 export const userRoleEnum = pgEnum("user_role", ["employee", "driver", "admin"]);
 
 export const tripStatusEnum = pgEnum("trip_status", [
-  "waiting",
+  "scheduled",
+  "ongoing",
+  "cancelled",
+]);
+
+export const adhocTripStatusEnum = pgEnum("adhoc_trip_status", [
+  "requested",
   "allocated",
-  "confirmed",
-  "in_progress",
   "completed",
   "cancelled",
+]);
+
+export const rosterTripStatusEnum = pgEnum("roster_trip_status", [
+  "scheduled",
+  "ongoing",
+  "cancelled",
+]);
+
+export const savedLocationTypeEnum = pgEnum("saved_location_type", [
+  "home",
+  "work",
+  "other",
 ]);
 
 export const disputeReasonEnum = pgEnum("dispute_reason", [
@@ -23,3 +39,5 @@ export const disputeStatusEnum = pgEnum("dispute_status", [
   "in_review",
   "resolved",
 ]);
+
+export const tripSourceEnum = pgEnum("trip_source", ["roster", "adhoc"]);

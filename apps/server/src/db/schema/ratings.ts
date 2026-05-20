@@ -1,4 +1,5 @@
-import { index, integer, pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { check, index, integer, pgTable, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
 import { trips } from "./trips";
 import { users } from "./users";
 
@@ -21,5 +22,7 @@ export const ratings = pgTable(
   },
   (t) => [
     index("ratings_trip_id_idx").on(t.tripId),
+    uniqueIndex("ratings_trip_from_user_unique").on(t.tripId, t.fromUserId),
+    check("ratings_score_range", sql`score >= 1 AND score <= 5`),
   ],
 );

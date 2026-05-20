@@ -1,4 +1,4 @@
-import { integer, pgTable, text, timestamp, varchar, boolean, uniqueIndex, index } from "drizzle-orm/pg-core";
+import { integer, pgTable, text, timestamp, varchar, boolean, index } from "drizzle-orm/pg-core";
 import { userRoleEnum } from "./enums";
 import { vehicles } from "./vehicles";
 
@@ -9,8 +9,9 @@ export const users = pgTable(
     employeeId: varchar("employee_id", { length: 50 }).notNull().unique(),
     passwordHash: text("password_hash").notNull(),
     role: userRoleEnum().notNull().default("employee"),
+    pushToken: text("push_token"),
     createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
-    updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().$onUpdate(() => new Date()).notNull(),
   },
 );
 
